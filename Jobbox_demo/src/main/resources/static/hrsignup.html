@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR SIGN UP FORM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            margin-right: 15px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HR Signup</h1>
+        <form action="/validation" method="post" onsubmit="return redirectToSuccessPage()">
+            <div class="form-group">
+                <label for="hrId">HR ID:</label>
+                <input type="text" id="hrId" name="hrId" required>
+            </div>
+            <div class="form-group">
+                <label for="hrName">HR Name:</label>
+                <input type="text" id="hrName" name="hrName" required> 
+            </div>
+			<div class="form-group">
+			 	<label for="hrEmail">HR Email:</label>
+			    <input type="text" id="hrEmail" name="hrEmail" required> 
+			</div>
+            <div class="form-group">
+                <label for="companyId">Company Name:</label>
+                <input type="text" id="companyId" name="companyId" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+			<div class="form-group" onload="disableSubmit()">
+			    <label for="terms" style="display: inline-block;">
+			        <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)"> I Agree Terms & Conditions
+			    </label>
+			    <input type="submit" value="Submit">
+			</div>
+  
+        </form>
+    </div>
+</body>
+<script>
+     function redirectToSuccessPage() {
+        window.location.href = "/validation";
+        return false; 
+    }
+	
+	function disableSubmit() {
+	  document.getElementById("submit").disabled = true;
+	 }
+	
+	  function activateButton(element) {
+	    
+	      if(element.checked) {
+	        document.getElementById("submit").disabled = false;
+	       }
+	       else  {
+	        document.getElementById("submit").disabled = true;
+	      }
+	  
+	  }
+</script>
+</html>
